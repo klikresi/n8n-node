@@ -9,19 +9,6 @@ SiCepat, TIKI, and more.
 
 API reference: [docs.klikresi.com](https://docs.klikresi.com)
 
-## Pricing
-
-The Klik Resi API is billed per request:
-
-| Operation | Price |
-|---|---|
-| Tracking (Get) | Rp 15 / request |
-| Rates (all operations) | Rp 5 / request |
-| Location (Search, Provinces, Cities, Districts) | Rp 1 / request |
-
-`Return All` on location operations follows pagination cursors automatically —
-each page counts as one billed request.
-
 ## Installation
 
 ### Community Nodes (recommended)
