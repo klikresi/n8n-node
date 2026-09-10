@@ -94,17 +94,17 @@ export class KlikResi implements INodeType {
 					{
 						name: 'Tracking',
 						value: 'tracking',
-						description: 'Track a shipment by AWB number and courier. Billed Rp 15 per request.',
+						description: 'Track a shipment by AWB number and courier',
 					},
 					{
 						name: 'Rate',
 						value: 'rates',
-						description: 'Compare shipping rates across couriers. Billed Rp 5 per request.',
+						description: 'Compare shipping rates across couriers',
 					},
 					{
 						name: 'Location',
 						value: 'location',
-						description: 'Search locations, provinces, cities, and districts. Billed Rp 1 per request.',
+						description: 'Search locations, provinces, cities, and districts',
 					},
 				],
 				default: 'tracking',

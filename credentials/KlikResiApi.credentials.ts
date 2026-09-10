@@ -21,8 +21,7 @@ export class KlikResiApi implements ICredentialType {
 			typeOptions: { password: true },
 			default: '',
 			required: true,
-			description:
-				'Your Klik Resi API key. Every API call is billed: Tracking Rp 15, Rates Rp 5, Location Rp 1 per request.',
+			description: 'Your Klik Resi API key.',
 		},
 	];
 
