@@ -1,5 +1,6 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { ApiError, COURIERS, KlikResiApi } from '../api/klikresi';
+import { KlikResi } from '../nodes/KlikResi/KlikResi.node';
 import trackingSuccess from './fixtures/tracking_success.json';
 import trackingFailed from './fixtures/tracking_failed.json';
 import ratesByID from './fixtures/rates_by_id.json';
@@ -11,6 +12,7 @@ import locationsPage2 from './fixtures/locations_page2.json';
 import provinces from './fixtures/provinces.json';
 import cities from './fixtures/cities.json';
 import districts from './fixtures/districts.json';
+import meSuccess from './fixtures/me_success.json';
 import { mockFetch } from './helpers';
 
 function lastRequest(fetchMock: ReturnType<typeof mockFetch>): { url: URL; init: RequestInit } {
@@ -167,5 +169,93 @@ describe('location', () => {
 		expect(secondUrl.searchParams.get('cursor')).toBe('32.76.01');
 		expect(all).toHaveLength(3);
 		expect(all[2]?.id).toBe('32.76.09');
+	});
+});
+
+describe('me', () => {
+	it('calls the auth endpoint with the API key header and returns the account', async () => {
+		const fetchMock = mockFetch(meSuccess);
+
+		const api = new KlikResiApi('test-key');
+		const account = await api.me();
+
+		const { url, init } = lastRequest(fetchMock);
+		expect(url.pathname).toBe('/api/me');
+		expect((init.headers as Record<string, string>)['x-api-key']).toBe('test-key');
+
+		expect(account).toEqual({
+			id: 'usr_01h2x8m7k9',
+			name: 'Damas Amirul Karim',
+			email: 'damas@example.com',
+			balance: 15000,
+		});
+	});
+
+	it('throws an ApiError with the API message on 401', async () => {
+		mockFetch({ message: 'invalid api key' }, 401);
+
+		const api = new KlikResiApi('test-key');
+		await expect(api.me()).rejects.toMatchObject({
+			name: 'ApiError',
+			status: 401,
+			message: 'invalid api key',
+		});
+	});
+});
+
+describe('credentialTest', () => {
+	const test = (apiKey: string) =>
+		new KlikResi().methods.credentialTest.klikResi({ data: { apiKey } });
+
+	it('rejects a missing or too short API key without calling the API', async () => {
+		const fetchMock = mockFetch(meSuccess);
+
+		const result = await test('short');
+
+		expect(result).toEqual({ status: 'Error', message: 'API key is missing or too short.' });
+		expect(fetchMock).not.toHaveBeenCalled();
+	});
+
+	it('returns OK with the account name, email and balance on success', async () => {
+		mockFetch(meSuccess);
+
+		const result = await test('valid-api-key');
+
+		expect(result.status).toBe('OK');
+		expect(result.message).toContain('Damas Amirul Karim');
+		expect(result.message).toContain('damas@example.com');
+		expect(result.message).toContain('15.000');
+	});
+
+	it('returns Invalid API key on 401', async () => {
+		mockFetch({ message: 'invalid api key' }, 401);
+
+		const result = await test('wrong-api-key');
+
+		expect(result).toEqual({ status: 'Error', message: 'Invalid API key.' });
+	});
+
+	it('returns a generic API error for other HTTP failures', async () => {
+		mockFetch({ message: 'something broke' }, 500);
+
+		const result = await test('valid-api-key');
+
+		expect(result.status).toBe('Error');
+		expect(result.message).toContain('HTTP 500');
+		expect(result.message).toContain('something broke');
+	});
+
+	it('returns a reachability error when the request throws', async () => {
+		vi.stubGlobal(
+			'fetch',
+			vi.fn<typeof fetch>(async () => {
+				throw new TypeError('fetch failed');
+			}),
+		);
+
+		const result = await test('valid-api-key');
+
+		expect(result.status).toBe('Error');
+		expect(result.message).toBe('Could not reach the Klik Resi API: fetch failed');
 	});
 });

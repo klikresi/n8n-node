@@ -102,6 +102,13 @@ export interface NamedLocationPage {
 	next_cursor: string;
 }
 
+export interface AccountInfo {
+	id: string;
+	name: string;
+	email: string;
+	balance: number;
+}
+
 export class ApiError extends Error {
 	readonly status: number;
 
@@ -167,6 +174,11 @@ export class KlikResiApi {
 		} finally {
 			timeout.removeEventListener('abort', abort);
 		}
+	}
+
+	async me(): Promise<AccountInfo> {
+		const envelope = await this.request<{ data: AccountInfo }>('GET', '/api/me');
+		return envelope.data;
 	}
 
 	async trackingGet(

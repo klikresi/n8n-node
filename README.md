@@ -34,8 +34,8 @@ Restart n8n.
 1. Create a new **Klik Resi API** credential (type: `Klik Resi API`).
 2. Paste your API key from the Klik Resi dashboard.
 
-The "Test" button only checks the key format — there is no free validation
-endpoint, and every API call is billed.
+The "Test" button verifies the key against the API via the free
+`GET /api/me` endpoint and shows the connected account name and balance.
 
 ## Operations
 

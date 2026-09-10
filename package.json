@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-klikresi",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "n8n community node for the Klik Resi shipping API: shipment tracking, shipping rates, and Indonesian location lookup.",
   "license": "MIT",
   "homepage": "https://docs.klikresi.com",

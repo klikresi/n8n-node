@@ -9,8 +9,8 @@ export class KlikResiApi implements ICredentialType {
 
 	documentationUrl = 'https://docs.klikresi.com';
 
-	// The credential is validated by the node via methods.credentialTest.
-	// There is no free validation endpoint, so no API call is made on test.
+	// The credential is validated by the node via methods.credentialTest,
+	// which calls the free GET /api/me endpoint to verify the API key.
 	testedBy = 'klikResi';
 
 	properties: INodeProperties[] = [

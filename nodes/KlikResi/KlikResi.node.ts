@@ -18,7 +18,7 @@ const courierOptions: Array<{ name: string; value: string }> = Object.values(COU
 export class KlikResi implements INodeType {
 	methods = {
 		credentialTest: {
-			async test(credential: { data?: { apiKey?: string } }): Promise<INodeCredentialTestResult> {
+			async klikResi(credential: { data?: { apiKey?: string } }): Promise<INodeCredentialTestResult> {
 				const apiKey = credential.data?.apiKey ?? '';
 				if (apiKey.trim().length < 8) {
 					return {
@@ -26,11 +26,39 @@ export class KlikResi implements INodeType {
 						message: 'API key is missing or too short.',
 					};
 				}
-				return {
-					status: 'OK',
-					message:
-						'API key format looks valid. Note: Klik Resi has no free validation endpoint, so the key is not verified against the API. Every API call is billed: Tracking Rp 15, Rates Rp 5, Location Rp 1 per request.',
-				};
+				try {
+					const account = await new KlikResiApi(apiKey).me();
+					if (!account || !account.name) {
+						return { status: 'OK', message: 'API key is valid.' };
+					}
+					const balance = new Intl.NumberFormat('id-ID', {
+						style: 'currency',
+						currency: 'IDR',
+						maximumFractionDigits: 0,
+					}).format(account.balance ?? 0);
+					return {
+						status: 'OK',
+						message: `Connected as ${account.name} (${account.email}). Balance: ${balance}`,
+					};
+				} catch (error) {
+					if (error instanceof ApiError && (error.status === 401 || error.status === 403)) {
+						return {
+							status: 'Error',
+							message: 'Invalid API key.',
+						};
+					}
+					if (error instanceof ApiError) {
+						return {
+							status: 'Error',
+							message: `Klik Resi API error (HTTP ${error.status}): ${error.message}`,
+						};
+					}
+					const detail = error instanceof Error ? error.message : String(error);
+					return {
+						status: 'Error',
+						message: `Could not reach the Klik Resi API: ${detail}`,
+					};
+				}
 			},
 		},
 	};
