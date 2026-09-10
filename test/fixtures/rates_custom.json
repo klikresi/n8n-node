@@ -1,0 +1,30 @@
+{
+    "data": {
+        "origin": {
+            "id": "33.08.20",
+            "name": "Secang, Kabupaten Magelang, Jawa Tengah"
+        },
+        "destination": {
+            "id": "32.09.31",
+            "name": "Depok, Kabupaten Cirebon, Jawa Barat"
+        },
+        "pricing": [
+            {
+                "type": "standard",
+                "courier_code": "jne",
+                "courier_name": "JNE Express",
+                "service": "REG",
+                "price": 21000,
+                "duration": "3-6 Hari"
+            },
+            {
+                "type": "cargo",
+                "courier_code": "jne",
+                "courier_name": "JNE Express",
+                "service": "JTR",
+                "price": 65000,
+                "duration": "4-5 Hari"
+            }
+        ]
+    }
+}

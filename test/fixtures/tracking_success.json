@@ -1,0 +1,70 @@
+{
+    "data": {
+        "status": "Delivered",
+        "origin": {
+            "contact_name": "DAMAS AMIRUL KARIM",
+            "address": "BLOK H10 JL GRIYA 100 WIYUNG KOTA SURABAYA"
+        },
+        "destination": {
+            "contact_name": "BUDI SANTOSO",
+            "address": "JALAN PAKUAN TIMUR RT1RW1 DESA"
+        },
+        "histories": [
+            {
+                "status": "Delivered",
+                "message": "Item has been delivered.",
+                "date": "2025-04-23T12:24:00+07:00"
+            },
+            {
+                "status": "InTransit",
+                "message": "WITH DELIVERY COURIER [BDJ, AGEN KANDANGAN NEW] [BDJ, AGEN KANDANGAN NEW]",
+                "date": "2025-04-23T08:37:00+07:00"
+            },
+            {
+                "status": "InTransit",
+                "message": "RECEIVED AT [KANDANGAN,KAB.HULU SUNGAI SLTN] [BDJ, AGEN KANDANGAN NEW]",
+                "date": "2025-04-21T07:37:00+07:00"
+            },
+            {
+                "status": "InTransit",
+                "message": "PROCESS AND FORWARD TO [KANDANGAN,KAB.HULU SUNGAI SLTN] [BDJ, HUB KP BISPARK]",
+                "date": "2025-04-20T20:43:00+07:00"
+            },
+            {
+                "status": "InTransit",
+                "message": "RECEIVED AT WAREHOUSE [BDJ, HUB KP BISPARK] [BDJ, HUB KP BISPARK]",
+                "date": "2025-04-20T16:06:00+07:00"
+            },
+            {
+                "status": "InTransit",
+                "message": "DEPART FROM TRANSIT [SURABAYA GATEWAY,SGD] [SUB GATEWAY,SGD]",
+                "date": "2025-04-20T08:22:00+07:00"
+            },
+            {
+                "status": "InTransit",
+                "message": "PROCESSED AT TRANSIT [SUB GATEWAY,SGD] [SUB GATEWAY,SGD]",
+                "date": "2025-04-20T07:09:00+07:00"
+            },
+            {
+                "status": "InTransit",
+                "message": "DEPART FROM TRANSIT [SURABAYA] [SURABAYA, JUANDA INBOUND]",
+                "date": "2025-04-20T03:21:00+07:00"
+            },
+            {
+                "status": "InTransit",
+                "message": "PROCESSED AT SORTING CENTER [SURABAYA, JUANDA OUTBOUND] [SURABAYA, JUANDA OUTBOUND]",
+                "date": "2025-04-20T01:36:00+07:00"
+            },
+            {
+                "status": "InTransit",
+                "message": "Item has been picked and ready to be shipped.",
+                "date": "2025-04-19T19:24:00+07:00"
+            },
+            {
+                "status": "InTransit",
+                "message": "Item has been picked and ready to be shipped.",
+                "date": "2025-04-19T16:42:00+07:00"
+            }
+        ]
+    }
+}

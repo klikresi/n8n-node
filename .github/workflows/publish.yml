@@ -1,0 +1,50 @@
+# Publishes this n8n community node package to npm on every version tag push.
+#
+# Uses npm provenance (OIDC Trusted Publishing): no long-lived token is
+# needed when the package has a Trusted Publisher configured on npm.
+#
+# One-time setup (Option A - recommended):
+#   1. On npmjs.com open the package settings.
+#   2. Under "Publish access" > "Trusted Publishers", click "Add a publisher".
+#   3. Select GitHub Actions and fill in:
+#        Repository owner: klikresi
+#        Repository name:  n8n-node-klikresi
+#        Workflow name:    publish.yml
+#
+# Option B (token): create a Granular Access Token on npm and store it as
+# NPM_TOKEN in the repository's Actions secrets.
+
+name: Publish
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  publish:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Publish
+        run: |
+          [ -n "$NPM_TOKEN" ] && npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
+          npm run release
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

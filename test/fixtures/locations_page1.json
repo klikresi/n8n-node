@@ -1,0 +1,19 @@
+{
+    "data": [
+        {
+            "id": "32.09.31",
+            "name": "Depok, Kabupaten Cirebon, Jawa Barat",
+            "district": "Depok",
+            "city": "Kabupaten Cirebon",
+            "province": "Jawa Barat"
+        },
+        {
+            "id": "32.76.01",
+            "name": "Pancoran Mas, Kota Depok, Jawa Barat",
+            "district": "Pancoran Mas",
+            "city": "Kota Depok",
+            "province": "Jawa Barat"
+        }
+    ],
+    "next_cursor": "32.76.01"
+}

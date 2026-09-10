@@ -1,0 +1,52 @@
+{
+  "name": "n8n-nodes-klikresi",
+  "version": "1.0.0",
+  "description": "n8n community node for the Klik Resi shipping API: shipment tracking, shipping rates, and Indonesian location lookup.",
+  "license": "MIT",
+  "homepage": "https://docs.klikresi.com",
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "klikresi",
+    "resi",
+    "shipping",
+    "tracking",
+    "courier",
+    "ongkir",
+    "indonesia"
+  ],
+	"author": {
+		"name": "Klik Resi",
+		"email": "support@klikresi.com"
+	},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klikresi/n8n-node-klikresi.git"
+  },
+  "scripts": {
+    "build": "n8n-node build",
+    "build:watch": "tsc --watch",
+    "dev": "n8n-node dev",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "release": "n8n-node release",
+    "prepublishOnly": "n8n-node prerelease"
+  },
+  "files": ["dist"],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "strict": true,
+    "credentials": ["dist/credentials/KlikResiApi.credentials.js"],
+    "nodes": ["dist/nodes/KlikResi/KlikResi.node.js"]
+  },
+  "devDependencies": {
+    "@n8n/node-cli": "*",
+    "eslint": "9.39.4",
+    "prettier": "3.8.3",
+    "typescript": "5.9.3",
+    "vitest": "^3.2.0"
+  },
+  "peerDependencies": { "n8n-workflow": "*" }
+}

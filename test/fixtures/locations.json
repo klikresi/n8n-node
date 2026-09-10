@@ -1,0 +1,75 @@
+{
+	"data": [
+		{
+			"id": "32.09.31",
+			"name": "Depok, Kabupaten Cirebon, Jawa Barat",
+			"district": "Depok",
+			"city": "Kabupaten Cirebon",
+			"province": "Jawa Barat"
+		},
+		{
+			"id": "32.76.01",
+			"name": "Pancoran Mas, Kota Depok, Jawa Barat",
+			"district": "Pancoran Mas",
+			"city": "Kota Depok",
+			"province": "Jawa Barat"
+		},
+		{
+			"id": "32.76.02",
+			"name": "Cimanggis, Kota Depok, Jawa Barat",
+			"district": "Cimanggis",
+			"city": "Kota Depok",
+			"province": "Jawa Barat"
+		},
+		{
+			"id": "32.76.03",
+			"name": "Sawangan, Kota Depok, Jawa Barat",
+			"district": "Sawangan",
+			"city": "Kota Depok",
+			"province": "Jawa Barat"
+		},
+		{
+			"id": "32.76.04",
+			"name": "Limo, Kota Depok, Jawa Barat",
+			"district": "Limo",
+			"city": "Kota Depok",
+			"province": "Jawa Barat"
+		},
+		{
+			"id": "32.76.05",
+			"name": "Sukmajaya, Kota Depok, Jawa Barat",
+			"district": "Sukmajaya",
+			"city": "Kota Depok",
+			"province": "Jawa Barat"
+		},
+		{
+			"id": "32.76.06",
+			"name": "Beji, Kota Depok, Jawa Barat",
+			"district": "Beji",
+			"city": "Kota Depok",
+			"province": "Jawa Barat"
+		},
+		{
+			"id": "32.76.07",
+			"name": "Cipayung, Kota Depok, Jawa Barat",
+			"district": "Cipayung",
+			"city": "Kota Depok",
+			"province": "Jawa Barat"
+		},
+		{
+			"id": "32.76.08",
+			"name": "Cilodong, Kota Depok, Jawa Barat",
+			"district": "Cilodong",
+			"city": "Kota Depok",
+			"province": "Jawa Barat"
+		},
+		{
+			"id": "32.76.09",
+			"name": "Cinere, Kota Depok, Jawa Barat",
+			"district": "Cinere",
+			"city": "Kota Depok",
+			"province": "Jawa Barat"
+		}
+	],
+	"next_cursor": "32.76.09"
+}

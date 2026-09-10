@@ -1,0 +1,70 @@
+{
+    "data": {
+        "origin": {
+            "id": "33.08.20",
+            "name": "Secang, Kabupaten Magelang, Jawa Tengah"
+        },
+        "destination": {
+            "id": "32.09.31",
+            "name": "Depok, Kabupaten Cirebon, Jawa Barat"
+        },
+        "pricing": [
+            {
+                "type": "standard",
+                "courier_code": "sap",
+                "courier_name": "SAP Express",
+                "service": "UDRREG",
+                "price": 18000,
+                "duration": "2-4 Hari"
+            },
+            {
+                "type": "standard",
+                "courier_code": "jnt",
+                "courier_name": "JNT Express",
+                "service": "Standard",
+                "price": 18000,
+                "duration": ""
+            },
+            {
+                "type": "standard",
+                "courier_code": "sicepat",
+                "courier_name": "SiCepat",
+                "service": "REG",
+                "price": 18000,
+                "duration": "2 - 4 Hari"
+            },
+            {
+                "type": "standard",
+                "courier_code": "ninja",
+                "courier_name": "Ninja Express",
+                "service": "Standard",
+                "price": 18800,
+                "duration": "2-4 Hari"
+            },
+            {
+                "type": "standard",
+                "courier_code": "jne",
+                "courier_name": "JNE Express",
+                "service": "REG",
+                "price": 21000,
+                "duration": "3-6 Hari"
+            },
+            {
+                "type": "standard",
+                "courier_code": "lion",
+                "courier_name": "Lion Parcel",
+                "service": "REGPACK",
+                "price": 23012,
+                "duration": "2 - 4 Hari"
+            },
+            {
+                "type": "cargo",
+                "courier_code": "jne",
+                "courier_name": "JNE Express",
+                "service": "JTR",
+                "price": 65000,
+                "duration": "4-5 Hari"
+            }
+        ]
+    }
+}
