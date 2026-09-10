@@ -1,7 +1,7 @@
 # n8n-nodes-klikresi
 
 This is an n8n community node that lets you use the [Klik Resi](https://klikresi.com)
-shipping API in your n8n workflows.
+API in your n8n workflows.
 
 Track shipments, compare shipping rates, and look up Indonesian locations
 (provinces, cities, districts) across 13 couriers — JNE, J&T, Shopee Express,
